@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct IoTMonitorApp: App {
+    @StateObject private var postManager = PostManager()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                    .environmentObject(postManager)
         }
     }
 }

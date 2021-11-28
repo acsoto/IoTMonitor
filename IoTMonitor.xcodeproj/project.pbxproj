@@ -14,6 +14,13 @@
 		98D7859E2750FE6E0042E47B /* IoTMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D7859D2750FE6E0042E47B /* IoTMonitorTests.swift */; };
 		98D785A82750FE6E0042E47B /* IoTMonitorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D785A72750FE6E0042E47B /* IoTMonitorUITests.swift */; };
 		98D785AA2750FE6E0042E47B /* IoTMonitorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D785A92750FE6E0042E47B /* IoTMonitorUITestsLaunchTests.swift */; };
+		98D785B82750FF840042E47B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D785B72750FF840042E47B /* Card.swift */; };
+		98D785CB275128220042E47B /* PostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D785CA275128220042E47B /* PostManager.swift */; };
+		98D785D627512A450042E47B /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98D785D227512A000042E47B /* SwiftHTTP.framework */; platformFilter = ios; };
+		98D785D727512A450042E47B /* SwiftHTTP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98D785D227512A000042E47B /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		98E9A55A2752A624008DA987 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 98E9A5592752A624008DA987 /* SwiftUICharts */; };
+		98E9A55E27534CE6008DA987 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E9A55D27534CE6008DA987 /* Option.swift */; };
+		98F9D7D0275278A800CAC86A /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9D7CF275278A800CAC86A /* History.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +38,35 @@
 			remoteGlobalIDString = 98D785882750FE6E0042E47B;
 			remoteInfo = IoTMonitor;
 		};
+		98D785D127512A000042E47B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98D785CC27512A000042E47B /* SwiftHTTP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6BFD901619C8D8B500DD99B6;
+			remoteInfo = SwiftHTTP;
+		};
+		98D785D327512A000042E47B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98D785CC27512A000042E47B /* SwiftHTTP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6BFD902119C8D8B500DD99B6;
+			remoteInfo = SwiftHTTPTests;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		98D785D827512A450042E47B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				98D785D727512A450042E47B /* SwiftHTTP.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		98D785892750FE6E0042E47B /* IoTMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IoTMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +79,12 @@
 		98D785A32750FE6E0042E47B /* IoTMonitorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IoTMonitorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98D785A72750FE6E0042E47B /* IoTMonitorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTMonitorUITests.swift; sourceTree = "<group>"; };
 		98D785A92750FE6E0042E47B /* IoTMonitorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTMonitorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		98D785B72750FF840042E47B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		98D785CA275128220042E47B /* PostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManager.swift; sourceTree = "<group>"; };
+		98D785CC27512A000042E47B /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "../../../../Downloads/SwiftHTTP-master/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
+		98D785D927512BD70042E47B /* test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = test.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		98E9A55D27534CE6008DA987 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
+		98F9D7CF275278A800CAC86A /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +92,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98D785D627512A450042E47B /* SwiftHTTP.framework in Frameworks */,
+				98E9A55A2752A624008DA987 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,10 +117,12 @@
 		98D785802750FE6E0042E47B = {
 			isa = PBXGroup;
 			children = (
+				98D785CC27512A000042E47B /* SwiftHTTP.xcodeproj */,
 				98D7858B2750FE6E0042E47B /* IoTMonitor */,
 				98D7859C2750FE6E0042E47B /* IoTMonitorTests */,
 				98D785A62750FE6E0042E47B /* IoTMonitorUITests */,
 				98D7858A2750FE6E0042E47B /* Products */,
+				98D785D527512A450042E47B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,8 +139,12 @@
 		98D7858B2750FE6E0042E47B /* IoTMonitor */ = {
 			isa = PBXGroup;
 			children = (
+				98F9D7CC2752789900CAC86A /* Views */,
+				98D785B927510A950042E47B /* Models */,
+				98D785B62750FF650042E47B /* Kit */,
 				98D7858C2750FE6E0042E47B /* IoTMonitorApp.swift */,
 				98D7858E2750FE6E0042E47B /* ContentView.swift */,
+				98D785CA275128220042E47B /* PostManager.swift */,
 				98D785902750FE6E0042E47B /* Assets.xcassets */,
 				98D785922750FE6E0042E47B /* Preview Content */,
 			);
@@ -127,6 +176,47 @@
 			path = IoTMonitorUITests;
 			sourceTree = "<group>";
 		};
+		98D785B62750FF650042E47B /* Kit */ = {
+			isa = PBXGroup;
+			children = (
+				98D785B72750FF840042E47B /* Card.swift */,
+			);
+			path = Kit;
+			sourceTree = "<group>";
+		};
+		98D785B927510A950042E47B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				98D785D927512BD70042E47B /* test.playground */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		98D785CD27512A000042E47B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				98D785D227512A000042E47B /* SwiftHTTP.framework */,
+				98D785D427512A000042E47B /* SwiftHTTPTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		98D785D527512A450042E47B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		98F9D7CC2752789900CAC86A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				98F9D7CF275278A800CAC86A /* History.swift */,
+				98E9A55D27534CE6008DA987 /* Option.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,12 +227,16 @@
 				98D785852750FE6E0042E47B /* Sources */,
 				98D785862750FE6E0042E47B /* Frameworks */,
 				98D785872750FE6E0042E47B /* Resources */,
+				98D785D827512A450042E47B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = IoTMonitor;
+			packageProductDependencies = (
+				98E9A5592752A624008DA987 /* SwiftUICharts */,
+			);
 			productName = IoTMonitor;
 			productReference = 98D785892750FE6E0042E47B /* IoTMonitor.app */;
 			productType = "com.apple.product-type.application";
@@ -215,8 +309,17 @@
 				Base,
 			);
 			mainGroup = 98D785802750FE6E0042E47B;
+			packageReferences = (
+				98E9A5582752A624008DA987 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 98D7858A2750FE6E0042E47B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 98D785CD27512A000042E47B /* Products */;
+					ProjectRef = 98D785CC27512A000042E47B /* SwiftHTTP.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				98D785882750FE6E0042E47B /* IoTMonitor */,
@@ -225,6 +328,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		98D785D227512A000042E47B /* SwiftHTTP.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftHTTP.framework;
+			remoteRef = 98D785D127512A000042E47B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		98D785D427512A000042E47B /* SwiftHTTPTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftHTTPTests.xctest;
+			remoteRef = 98D785D327512A000042E47B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		98D785872750FE6E0042E47B /* Resources */ = {
@@ -257,7 +377,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98F9D7D0275278A800CAC86A /* History.swift in Sources */,
 				98D7858F2750FE6E0042E47B /* ContentView.swift in Sources */,
+				98E9A55E27534CE6008DA987 /* Option.swift in Sources */,
+				98D785CB275128220042E47B /* PostManager.swift in Sources */,
+				98D785B82750FF840042E47B /* Card.swift in Sources */,
 				98D7858D2750FE6E0042E47B /* IoTMonitorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +543,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IoTMonitor/Preview Content\"";
+				DEVELOPMENT_TEAM = 5X5S5CN8WA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -447,6 +572,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IoTMonitor/Preview Content\"";
+				DEVELOPMENT_TEAM = 5X5S5CN8WA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -599,6 +725,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		98E9A5582752A624008DA987 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = exactVersion;
+				version = 1.5.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		98E9A5592752A624008DA987 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 98E9A5582752A624008DA987 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 98D785812750FE6E0042E47B /* Project object */;
 }
