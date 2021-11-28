@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct Option: View {
+    @EnvironmentObject var postManager: PostManager
     @State var thresholdValue = 30
+
     var body: some View {
         NavigationView {
             ScrollView {
@@ -39,7 +41,7 @@ struct Option: View {
                         .padding([.top, .horizontal])
 
                 Button(action: {
-                    print("")
+                    postManager.setThreshold(threshold: thresholdValue)
                 }, label: {
                     Card(icon: Image(systemName: ""), str1: Text(""), str2: Text("保存").foregroundColor(.cyan), str3: Text(""))
                 })

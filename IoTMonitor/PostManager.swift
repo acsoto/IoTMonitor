@@ -19,6 +19,13 @@ final class PostManager: ObservableObject {
         getDeviceInfo()
     }
 
+    func setThreshold(threshold: Int) {
+        let params = ["threshold": threshold]
+        HTTP.POST("https://service-mu7i6cz3-1308528160.bj.apigw.tencentcs.com/release/set_threshold", parameters: params) { response in
+
+        }
+    }
+
     //"1637856052000" "1637942452000"
     func getHistory(begin: String, end: String) {
         let params = ["begin_timestamp": begin, "end_timestamp": end]
