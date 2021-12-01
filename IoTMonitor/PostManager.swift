@@ -32,8 +32,10 @@ final class PostManager: ObservableObject {
     func getHistory(begin: String, end: String) {
         let params = ["begin_timestamp": begin, "end_timestamp": end]
         HTTP.POST("https://service-mu7i6cz3-1308528160.bj.apigw.tencentcs.com/release/get_history_status_page", parameters: params) { response in
-            self.humidityHistory = [Double]()
-            self.temperatureHistory = [Double]()
+            DispatchQueue.main.async {
+                self.humidityHistory = [Double]()
+                self.temperatureHistory = [Double]()
+            }
             do {
                 let json = try JSONSerialization.jsonObject(with: response.data)
                 let dic = json as! Dictionary<String, Array<NSNumber>>
@@ -62,10 +64,10 @@ final class PostManager: ObservableObject {
                             DispatchQueue.main.async {
                                 self.humidity =
                                         String(format: "%.2f", Double(i["value"] as! String)!)
-                                  }
+                            }
                         } else {
                             DispatchQueue.main.async {
-                            self.temperature = String(format: "%.2f", Double(i["value"] as! String)!)
+                                self.temperature = String(format: "%.2f", Double(i["value"] as! String)!)
                             }
                         }
                     }
