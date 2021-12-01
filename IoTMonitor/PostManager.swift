@@ -14,6 +14,7 @@ final class PostManager: ObservableObject {
     @Published var humidity = ""
     @Published var temperatureHistory = [Double]()
     @Published var humidityHistory = [Double]()
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     init() {
         getDeviceInfo()

@@ -10,6 +10,7 @@ import SwiftUI
 struct Option: View {
     @EnvironmentObject var postManager: PostManager
     @State var thresholdValue = 30
+    @State var hasSet = false
 
     var body: some View {
         NavigationView {
@@ -42,6 +43,7 @@ struct Option: View {
 
                 Button(action: {
                     postManager.setThreshold(threshold: thresholdValue)
+                    self.hasSet.toggle()
                 }, label: {
                     Card(icon: Image(systemName: ""), str1: Text(""), str2: Text("保存").foregroundColor(.cyan), str3: Text(""))
                 })
