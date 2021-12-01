@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
+import SwiftUICharts
 
 struct Option: View {
     @EnvironmentObject var postManager: PostManager
     @State var thresholdValue = 30
-    @State var hasSet = false
 
     var body: some View {
         NavigationView {
@@ -43,12 +43,22 @@ struct Option: View {
 
                 Button(action: {
                     postManager.setThreshold(threshold: thresholdValue)
-                    self.hasSet.toggle()
+                    postManager.thresholdVlaueHistory.append(Double(thresholdValue))
                 }, label: {
                     Card(icon: Image(systemName: ""), str1: Text(""), str2: Text("保存").foregroundColor(.cyan), str3: Text(""))
                 })
 
+                BarChartView(data: ChartData(points: postManager.thresholdVlaueHistory), title: "阈值设置历史", form: ChartForm.large)
+                        .cornerRadius(20)
+                        .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color(.sRGB, red: 150 / 255, green: 150 / 255, blue: 150 / 255, opacity: 0.1), lineWidth: 1)
+                        )
+                        .padding([.top, .horizontal])
+
             }.navigationTitle(Text("设置"))
+
+
         }
     }
 }
