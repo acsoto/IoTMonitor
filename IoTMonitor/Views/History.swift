@@ -16,12 +16,12 @@ struct History: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                TimePickCard(date1: $date1, date2: $date2)
                 Button(action: {
-                    postManager.getHistory(begin: getDateString(date: date1), end: getDateString(date: date2))
+                    postManager.getHistory(date1: date1, date2: date2)
                 }, label: {
                     Card(icon: Image(systemName: "repeat"), str1: Text(""), str2: Text("获取").foregroundColor(.cyan), str3: Text(""))
                 })
+                TimePickCard(date1: $date1, date2: $date2)
 //                MultiLineChartView(data: [(postManager.temperatureHistory,GradientColors.orange),(postManager.humidityHistory,GradientColors.blue)], title: "", form: ChartForm.large)
 //                    .cornerRadius(20)
 //                    .overlay(
@@ -57,8 +57,4 @@ struct History_Previews: PreviewProvider {
         MultiLineChartView(data: [([8, 32, 11, 23, 40, 28], GradientColors.green), ([90, 99, 78, 111, 70, 60, 77], GradientColors.purple), ([34, 56, 72, 38, 43, 100, 50], GradientColors.orngPink)], title: "Title")
 
     }
-}
-
-func getDateString(date: Date) -> String {
-    return String(format: "%.0f", date.timeIntervalSince1970 * 1000)
 }

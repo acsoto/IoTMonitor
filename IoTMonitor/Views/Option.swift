@@ -15,6 +15,13 @@ struct Option: View {
     var body: some View {
         NavigationView {
             ScrollView {
+                Button(action: {
+                    postManager.setThreshold(threshold: thresholdValue)
+                    postManager.thresholdVlaueHistory.append(Double(thresholdValue))
+                }, label: {
+                    Card(icon: Image(systemName: "repeat"), str1: Text(""), str2: Text("保存").foregroundColor(.cyan), str3: Text(""))
+                })
+
                 HStack {
                     VStack(alignment: .center) {
                         Stepper(value: $thresholdValue) {
@@ -40,13 +47,6 @@ struct Option: View {
                                         .stroke(Color(.sRGB, red: 150 / 255, green: 150 / 255, blue: 150 / 255, opacity: 0.1), lineWidth: 1)
                         )
                         .padding([.top, .horizontal])
-
-                Button(action: {
-                    postManager.setThreshold(threshold: thresholdValue)
-                    postManager.thresholdVlaueHistory.append(Double(thresholdValue))
-                }, label: {
-                    Card(icon: Image(systemName: ""), str1: Text(""), str2: Text("保存").foregroundColor(.cyan), str3: Text(""))
-                })
 
                 BarChartView(data: ChartData(points: postManager.thresholdVlaueHistory), title: "阈值设置历史", form: ChartForm.large)
                         .cornerRadius(20)
