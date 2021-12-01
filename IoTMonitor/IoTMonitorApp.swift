@@ -14,6 +14,10 @@ struct IoTMonitorApp: App {
         WindowGroup {
             ContentView()
                     .environmentObject(postManager)
+                    .onReceive(postManager.timer) { time in
+                        print("实时更新温湿度")
+                        postManager.getDeviceInfo()
+                    }
         }
     }
 }
