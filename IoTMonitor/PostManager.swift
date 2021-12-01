@@ -32,17 +32,19 @@ final class PostManager: ObservableObject {
     func getHistory(begin: String, end: String) {
         let params = ["begin_timestamp": begin, "end_timestamp": end]
         HTTP.POST("https://service-mu7i6cz3-1308528160.bj.apigw.tencentcs.com/release/get_history_status_page", parameters: params) { response in
+            self.humidityHistory = [Double]()
+            self.temperatureHistory = [Double]()
             do {
                 let json = try JSONSerialization.jsonObject(with: response.data)
                 let dic = json as! Dictionary<String, Array<NSNumber>>
                 if let list = dic["humidity_data"] {
                     for i in list {
-                        self.humidityHistory.append(Double(i))
+                        self.humidityHistory.append(Double(truncating: i))
                     }
                 }
                 if let list = dic["temperature_data"] {
                     for i in list {
-                        self.temperatureHistory.append(Double(i))
+                        self.temperatureHistory.append(Double(truncating: i))
                     }
                 }
             } catch _ {
@@ -57,10 +59,14 @@ final class PostManager: ObservableObject {
                 if let deviceStatusList = dict["deviceStatusList"] {
                     for i in deviceStatusList as! Array<Dictionary<String, Any>> {
                         if i["datasetId"] as! String == "humidity_data" {
-                            self.humidity =
-                                    String(format: "%.2f", Double(i["value"] as! String)!)
+                            DispatchQueue.main.async {
+                                self.humidity =
+                                        String(format: "%.2f", Double(i["value"] as! String)!)
+                                  }
                         } else {
+                            DispatchQueue.main.async {
                             self.temperature = String(format: "%.2f", Double(i["value"] as! String)!)
+                            }
                         }
                     }
                 }
