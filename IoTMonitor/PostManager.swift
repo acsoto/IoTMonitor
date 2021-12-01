@@ -19,6 +19,7 @@ final class PostManager: ObservableObject {
 
     init() {
         getDeviceInfo()
+        getHistory(date1: NSDate.init(timeInterval: -2 * 24 * 60 * 60, since: Date()) as Date, date2: Date())
     }
 
     func setThreshold(threshold: Int) {
@@ -29,8 +30,9 @@ final class PostManager: ObservableObject {
     }
 
     //"1637856052000" "1637942452000"
-    func getHistory(begin: String, end: String) {
-        let params = ["begin_timestamp": begin, "end_timestamp": end]
+    func getHistory(date1: Date, date2: Date) {
+
+        let params = ["begin_timestamp": getDateString(date: date1), "end_timestamp": getDateString(date: date2)]
         HTTP.POST("https://service-mu7i6cz3-1308528160.bj.apigw.tencentcs.com/release/get_history_status_page", parameters: params) { response in
             DispatchQueue.main.async {
                 self.humidityHistory = [Double]()
@@ -97,4 +99,8 @@ func dataToDictionary(data: Data) -> Dictionary<String, Any>? {
     } catch _ {
         return nil
     }
+}
+
+func getDateString(date: Date) -> String {
+    return String(format: "%.0f", date.timeIntervalSince1970 * 1000)
 }
