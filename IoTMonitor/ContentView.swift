@@ -22,13 +22,7 @@ struct ContentView: View {
                         Card(icon: Image(systemName: "repeat"), str1: Text(""), str2: Text("刷新").foregroundColor(.cyan), str3: Text(""))
                     })
                     Card(icon: Image(systemName: "sun.max"), str1: Text("温度"), str2: Text("\(postManager.temperature)°C").foregroundColor(.red), str3: Text(""))
-                            .onReceive(postManager.timer) { time in
-
-                            }
                     Card(icon: Image(systemName: "thermometer"), str1: Text("湿度"), str2: Text("\(postManager.humidity)%").foregroundColor(.blue), str3: Text(""))
-                            .onReceive(postManager.timer) { time in
-
-                            }
                     Button(action: {
                         postManager.turnDeviceOn()
                     }, label: {
